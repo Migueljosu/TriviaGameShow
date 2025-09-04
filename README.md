@@ -59,13 +59,13 @@ Trivia-Game-Show/
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/josueluis29/Trivia-Game-Show.git
+   git clone https://github.com/Migueljosu/TriviaGameShow.git
    ````
 
 2. Acesse o diretório do projeto:
 
    ```bash
-   cd Trivia-Game-Show
+   cd TriviaGameShow
    ```
 
 3. Abra o arquivo `index.html` em qualquer navegador moderno.
@@ -128,8 +128,4 @@ Sinta-se à vontade para usar, modificar e distribuir conforme necessário.
 
 **Miguel Josué Luís**
 📧 Email: [josuluis29@gmail.com](mailto:josuluis29@gmail.com)
-🌐 GitHub: [github.com/josueluis29](https://github.com/josueluis29)
-
-```
-
-
+🌐 GitHub: [github.com/josueluis29](https://github.com/Migueljosu)
