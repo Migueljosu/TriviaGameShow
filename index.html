@@ -5,35 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia Game Show</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="quiz_8776742.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="particle.js" defer></script>
   </head>
   <body>
     <canvas id="particles"></canvas>
+
+    <!-- Modal Nome do Jogador -->
+    <div id="modalName" class="modal">
+      <h2>Digite seu nome</h2>
+      <input type="text" id="playerName" placeholder="Seu nome" />
+      <button id="nameSubmitBtn">Confirmar</button>
+    </div>
+
+    <!-- Modal Configuração (Categoria/Dificuldade) -->
+    <div id="modalSettings" class="modal hidden">
+      <h2>Escolha categoria e dificuldade</h2>
+      <label for="category">Categoria:</label>
+      <select id="category">
+        <option value="">Aleatória</option>
+        <option value="9">Geral</option>
+        <option value="17">Ciência</option>
+        <option value="18">Computadores</option>
+        <option value="21">Esportes</option>
+        <option value="23">História</option>
+      </select>
+
+      <label for="difficulty">Dificuldade:</label>
+      <select id="difficulty">
+        <option value="">Aleatória</option>
+        <option value="easy">Fácil</option>
+        <option value="medium">Médio</option>
+        <option value="hard">Difícil</option>
+      </select>
+      <button id="settingsSubmitBtn">Iniciar Jogo</button>
+    </div>
+
     <div class="container">
       <h1>🎉 Trivia Game Show</h1>
-
-      <div class="settings">
-        <label for="category">Categoria:</label>
-        <select id="category">
-          <option value="">Aleatória</option>
-          <option value="9">Geral</option>
-          <option value="17">Ciência</option>
-          <option value="18">Computadores</option>
-          <option value="21">Esportes</option>
-          <option value="23">História</option>
-        </select>
-
-        <label for="difficulty">Dificuldade:</label>
-        <select id="difficulty">
-          <option value="">Aleatória</option>
-          <option value="easy">Fácil</option>
-          <option value="medium">Médio</option>
-          <option value="hard">Difícil</option>
-        </select>
-
-        <button id="startBtn">Iniciar Jogo</button>
-      </div>
 
       <div id="quiz" class="card hidden">
         <div id="timerBarContainer">
