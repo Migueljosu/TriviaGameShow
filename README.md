@@ -60,7 +60,7 @@ Trivia-Game-Show/
 1. Clone este repositório:
    ```bash
    git clone https://github.com/josueluis29/Trivia-Game-Show.git
-````
+   ````
 
 2. Acesse o diretório do projeto:
 
