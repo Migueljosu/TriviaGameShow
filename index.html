@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Game Show</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="particle.js" defer></script>
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <div class="container">
+      <h1>🎉 Trivia Game Show</h1>
+
+      <div class="settings">
+        <label for="category">Categoria:</label>
+        <select id="category">
+          <option value="">Aleatória</option>
+          <option value="9">Geral</option>
+          <option value="17">Ciência</option>
+          <option value="18">Computadores</option>
+          <option value="21">Esportes</option>
+          <option value="23">História</option>
+        </select>
+
+        <label for="difficulty">Dificuldade:</label>
+        <select id="difficulty">
+          <option value="">Aleatória</option>
+          <option value="easy">Fácil</option>
+          <option value="medium">Médio</option>
+          <option value="hard">Difícil</option>
+        </select>
+
+        <button id="startBtn">Iniciar Jogo</button>
+      </div>
+
+      <div id="quiz" class="card hidden">
+        <div id="timerBarContainer">
+          <div id="timerBar"></div>
+          <p id="timer">⏰ 15</p>
+        </div>
+        <p id="question">Pergunta</p>
+        <div id="answers" class="answers"></div>
+        <p id="score">Pontuação: 0</p>
+        <button id="nextBtn" class="hidden">Próxima Pergunta</button>
+        <canvas id="scoreChart" height="150"></canvas>
+      </div>
+
+      <div id="leaderboard" class="card hidden">
+        <h2>🏆 Ranking</h2>
+        <ul id="rankingList"></ul>
+        <button id="restartBtn">Reiniciar Jogo</button>
+      </div>
+    </div>
+
+    <audio id="correctSound" src="sonido-correcto-331225.mp3"></audio>
+    <audio id="wrongSound" src="wrong-47985.mp3"></audio>
+    <script src="app.js"></script>
+  </body>
+</html>
