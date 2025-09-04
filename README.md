@@ -18,7 +18,7 @@ O jogo consome a API [Open Trivia Database (OpenTDB)](https://opentdb.com/) para
 
 O **Trivia Game Show** está disponível online:
 
-[🎮 Jogar Agora](https://68b9933b5ad2670a969e48fa--dynamic-alpaca-2c1769.netlify.app/)
+[🎮 Jogar Agora](https://dynamic-alpaca-2c1769.netlify.app/)
 
 ---
 
