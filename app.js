@@ -23,6 +23,14 @@ let questions = [],
   timeLeft = 15,
   timerInterval = null;
 let scoreData = [];
+let playerName = "";
+
+// Modal Elements
+const modalName = document.getElementById("modalName");
+const modalSettings = document.getElementById("modalSettings");
+const playerNameInput = document.getElementById("playerName");
+const nameSubmitBtn = document.getElementById("nameSubmitBtn");
+const settingsSubmitBtn = document.getElementById("settingsSubmitBtn");
 
 // Chart.js
 const scoreChart = new Chart(scoreChartCtx, {
@@ -87,9 +95,6 @@ function showQuestion() {
     btn.addEventListener("click", () => checkAnswer(btn, q.correct));
     answersEl.appendChild(btn);
   });
-
-  quizDiv.classList.add("fadeIn");
-  setTimeout(() => quizDiv.classList.remove("fadeIn"), 500);
 }
 
 // Timer
@@ -115,12 +120,10 @@ function checkAnswer(selectedBtn, correct) {
     selectedBtn.classList.add("correct");
     correctSound.play();
     score++;
-    explode(window.innerWidth / 2, window.innerHeight / 2, "#00FF00", 50);
   } else {
     selectedBtn.classList.add("wrong");
     wrongSound.play();
     revealCorrect();
-    explode(window.innerWidth / 2, window.innerHeight / 2, "#FF0000", 50);
   }
 
   scoreEl.textContent = `Pontuação: ${score}`;
@@ -161,10 +164,9 @@ function endGame() {
 
 // Save score
 function saveScore() {
-  const name = prompt("Digite seu nome para salvar no ranking:", "Jogador");
-  if (!name) return;
+  if (!playerName) return;
   let leaderboard = JSON.parse(localStorage.getItem("triviaLeaderboard")) || [];
-  leaderboard.push({ name, score });
+  leaderboard.push({ name: playerName, score });
   leaderboard.sort((a, b) => b.score - a.score);
   localStorage.setItem("triviaLeaderboard", JSON.stringify(leaderboard));
 }
@@ -184,12 +186,20 @@ function showLeaderboard() {
 // Restart game
 restartBtn.addEventListener("click", () => {
   leaderboardDiv.classList.add("hidden");
-  startGame();
+  modalName.classList.remove("hidden");
 });
 
-// Start game
-async function startGame() {
-  leaderboardDiv.classList.add("hidden");
+// Modal lógica
+nameSubmitBtn.addEventListener("click", () => {
+  const name = playerNameInput.value.trim();
+  if (!name) return alert("Por favor, insira seu nome.");
+  playerName = name;
+  modalName.classList.add("hidden");
+  modalSettings.classList.remove("hidden");
+});
+
+settingsSubmitBtn.addEventListener("click", async () => {
+  modalSettings.classList.add("hidden");
   quizDiv.classList.remove("hidden");
   score = 0;
   currentIndex = 0;
@@ -199,7 +209,4 @@ async function startGame() {
     difficultySelect.value
   );
   showQuestion();
-}
-
-// Start button
-startBtn.addEventListener("click", startGame);
+});
