@@ -1,4 +1,3 @@
-```markdown
 # 🎉 Trivia Game Show
 
 ![Status](https://img.shields.io/badge/status-active-success?style=for-the-badge)
